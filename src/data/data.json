@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "name": "Faros LED Universales de Motocicleta - Tier 6%",
+      "price": 600,
+      "description": "1 par 3000lm 12V 24W de Faros LED Universales de Motocicleta/ Foco/Luces Auxiliares/Luz de Niebla",
+      "image": "/assets/led-lights.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Aceite multigrado para motocicleta - Tier 25%",
+      "price": 670,
+      "description": "Aceite para moto LUKOIL MOTO 4T SAE 10W-30 (1 litro) | Aceite multigrado para motocicleta 10W-30 (1 Litro) | Líquido para motocicleta Lukoil SAE 10W-30 (1 Litro)",
+      "image": "/assets/led-lights.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Batería de auto - Tier 25%",
+      "price": 460,
+      "description": "Batería para Auto LTH LTH BCI 42",
+      "image": "/assets/led-lights.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Filtro de gasolina - Tier 12%",
+      "price": 850,
+      "description": "Filtro de gasolina - Tier 14%",
+      "image": "/assets/led-lights.jpg"
+    }
+  ]
+}
