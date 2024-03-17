@@ -1,11 +1,11 @@
-import { CartItem } from "../types";
+import { CartItemType } from "../types";
 
 export const getCartData = () => {
   const cart = localStorage.getItem("cart");
-  const cartItems: CartItem[] = cart ? JSON.parse(cart) : [];
+  const cartItems: CartItemType[] = cart ? JSON.parse(cart) : [];
 
   const totalQuantity = cartItems.reduce(
-    (acc: number, curr: CartItem) => acc + curr.quantity,
+    (acc: number, curr: CartItemType) => acc + curr.quantity,
     0
   );
 

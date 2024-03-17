@@ -1,5 +1,5 @@
-import { ProductType } from "@/app/home/Product";
+import { ProductType } from "@/app/home/types";
 
-export type CartItem = ProductType & {
+export type CartItemType = ProductType & {
   quantity: number;
 };

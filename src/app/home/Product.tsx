@@ -3,16 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { getCartData } from "../components/Cart/utils";
-
-export type ProductType = {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-};
-
-type ProductProps = ProductType;
+import { ProductProps, ProductType } from "./types";
 
 const Product = ({ id, image, name, price }: ProductProps) => {
   const handleAdd = () => {
@@ -27,6 +18,7 @@ const Product = ({ id, image, name, price }: ProductProps) => {
       // Add the new product to the cart
       const newProduct = {
         id,
+        image,
         name,
         price,
         quantity: 1,
