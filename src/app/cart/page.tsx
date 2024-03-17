@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Products from "./components/Products";
 import Resume from "./components/Resume";

@@ -1,9 +1,17 @@
+"use client";
+
 import { getCartData } from "@/app/components/Cart/utils";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from "./Product";
+import { CartItemType } from "@/app/components/Cart/types";
 
 const Products = () => {
-  const { cartItems } = getCartData();
+  const [cartItems, setCartItems] = useState<CartItemType[]>([]);
+
+  useEffect(() => {
+    const { cartItems } = getCartData();
+    setCartItems(cartItems);
+  }, []);
 
   return (
     <div className="basis-2/3">
