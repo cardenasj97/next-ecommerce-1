@@ -4,13 +4,18 @@ export const getCartData = () => {
   const cart = localStorage.getItem("cart");
   const cartItems: CartItemType[] = cart ? JSON.parse(cart) : [];
 
-  const totalQuantity = cartItems.reduce(
-    (acc: number, curr: CartItemType) => acc + curr.quantity,
-    0
+  const totals = cartItems.reduce(
+    (acc, curr) => {
+      acc.totalQuantity += curr.quantity;
+      acc.totalAmount += curr.totalAmount;
+      return acc;
+    },
+    { totalQuantity: 0, totalAmount: 0 }
   );
 
   return {
     cartItems,
-    totalQuantity,
+    totalQuantity: totals.totalQuantity,
+    totalAmount: totals.totalAmount,
   };
 };

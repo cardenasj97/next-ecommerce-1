@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { getCartData } from "../components/Cart/utils";
 import { ProductProps, ProductType } from "./types";
+import { CartItemType } from "../components/Cart/types";
 
 const Product = ({ id, image, name, price }: ProductProps) => {
   const handleAdd = () => {
@@ -22,6 +23,7 @@ const Product = ({ id, image, name, price }: ProductProps) => {
         name,
         price,
         quantity: 1,
+        totalAmount: price,
       };
 
       localStorage.setItem("cart", JSON.stringify([...cartItems, newProduct]));
@@ -32,8 +34,14 @@ const Product = ({ id, image, name, price }: ProductProps) => {
     }
 
     // Increase the quantity of the existing product
-    const updatedCartItems = cartItems.map((item: any) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+    const updatedCartItems = cartItems.map((item: CartItemType) =>
+      item.id === id
+        ? {
+            ...item,
+            quantity: item.quantity + 1,
+            totalAmount: item.totalAmount + item.price,
+          }
+        : item
     );
 
     localStorage.setItem("cart", JSON.stringify(updatedCartItems));
@@ -49,7 +57,7 @@ const Product = ({ id, image, name, price }: ProductProps) => {
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div>
-          <div className="font-bold text-xl">${price}</div>
+          <div className="font-bold text-xl">${price.toFixed(2)}</div>
           <div>{name}</div>
         </div>
         <button
