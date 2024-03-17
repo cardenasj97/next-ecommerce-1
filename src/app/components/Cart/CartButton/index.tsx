@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { CartItem } from "../types";
 import { getCartData } from "../utils";
+import Link from "next/link";
 
 const CartButton = () => {
   const [quantity, setQuantity] = useState(0);
@@ -24,14 +24,14 @@ const CartButton = () => {
   }, []);
 
   return (
-    <button className="text-3xl relative" title="Go to the cart">
+    <Link href="cart" className="text-3xl relative" title="Go to the cart page">
       🛒
       {quantity > 0 && (
         <span className="text-xs bg-red-500 text-white rounded-full px-2 absolute -right-6 -top-2">
           {quantity}
         </span>
       )}
-    </button>
+    </Link>
   );
 };
 
