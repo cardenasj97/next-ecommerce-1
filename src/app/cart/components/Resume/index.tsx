@@ -16,11 +16,22 @@ const Resume = () => {
   });
 
   useEffect(() => {
-    const { cartItems, totalAmount } = getCartData();
-    setResume({
-      cartItems,
-      totalAmount,
-    });
+    const fetchCartData = () => {
+      const { cartItems, totalAmount } = getCartData();
+      setResume({
+        cartItems,
+        totalAmount,
+      });
+    };
+    fetchCartData();
+
+    // Listen for changes in the cart to refresh the ui
+    window.addEventListener("storageUpdated", fetchCartData);
+
+    // Run this to prevent memory leaks
+    return () => {
+      window.removeEventListener("storageUpdated", fetchCartData);
+    };
   }, []);
 
   return (

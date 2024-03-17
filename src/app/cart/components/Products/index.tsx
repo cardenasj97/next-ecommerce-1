@@ -9,12 +9,23 @@ const Products = () => {
   const [cartItems, setCartItems] = useState<CartItemType[]>([]);
 
   useEffect(() => {
-    const { cartItems } = getCartData();
-    setCartItems(cartItems);
+    const fetchCartData = () => {
+      const { cartItems } = getCartData();
+      setCartItems(cartItems);
+    };
+    fetchCartData();
+
+    // Listen for changes in the cart to refresh the ui
+    window.addEventListener("storageUpdated", fetchCartData);
+
+    // Run this to prevent memory leaks
+    return () => {
+      window.removeEventListener("storageUpdated", fetchCartData);
+    };
   }, []);
 
   return (
-    <div className="basis-2/3">
+    <div className="flex-1 md:basis-2/3">
       <h2 className="font-bold text-2xl mb-2">Cart</h2>
       <div>
         <div className="flex gap-6 flex-col">

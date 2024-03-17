@@ -14,7 +14,7 @@ const CartButton = () => {
     };
     performCartCalculations();
 
-    // Listen for changes in the cart to re-run calculations
+    // Listen for changes in the cart to refresh the ui
     window.addEventListener("storageUpdated", performCartCalculations);
 
     // Run this to prevent memory leaks
