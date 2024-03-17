@@ -13,8 +13,11 @@ const Resume = () => {
         {cartItems.map((item: CartItemType) => {
           return (
             <div key={item.id} className="flex justify-between text-gray-500">
-              <span className="text text-wrap colum">
-                {item.name} x {item.quantity}
+              <span className="flex">
+                <span className="inline-block max-w-60 whitespace-nowrap overflow-hidden text-ellipsis mr-1">
+                  {item.name}
+                </span>
+                x {item.quantity} units
               </span>
 
               <span>${item.totalAmount.toFixed(2)}</span>
