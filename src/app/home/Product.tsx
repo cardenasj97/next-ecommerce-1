@@ -5,8 +5,11 @@ import React from "react";
 import { getCartData } from "../components/Cart/utils";
 import { ProductProps, ProductType } from "./types";
 import { CartItemType } from "../components/Cart/types";
+import useSound from "use-sound";
 
 const Product = ({ id, image, name, price }: ProductProps) => {
+  const [playActive] = useSound("/assets/sounds/ding-1.mp3", { volume: 0.25 });
+
   const handleAdd = () => {
     const { cartItems } = getCartData();
 
@@ -14,6 +17,9 @@ const Product = ({ id, image, name, price }: ProductProps) => {
     const isExistingProduct = cartItems.find(
       (item: ProductType) => item.id === id
     );
+
+    // Reproduce `ding` sound
+    playActive();
 
     if (!isExistingProduct) {
       // Add the new product to the cart
@@ -51,7 +57,7 @@ const Product = ({ id, image, name, price }: ProductProps) => {
   };
 
   return (
-    <div className="bg-white w-52 p-5 rounded-lg flex flex-col border border-solid">
+    <div className="bg-white p-5 rounded-lg flex flex-col border border-solid">
       <div className="flex justify-center">
         <Image src={image} alt={name} width={80} height={80} />
       </div>

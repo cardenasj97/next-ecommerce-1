@@ -14,6 +14,7 @@ const Resume = () => {
     cartItems: [],
     totalAmount: 0,
   });
+  const disabled = !resume.cartItems.length;
 
   useEffect(() => {
     const fetchCartData = () => {
@@ -43,7 +44,7 @@ const Resume = () => {
           return (
             <div key={item.id} className="flex justify-between text-gray-500">
               <span className="flex">
-                <span className="inline-block max-w-60 whitespace-nowrap overflow-hidden text-ellipsis mr-1">
+                <span className="inline-block max-w-60 overflow-hidden text-ellipsis mr-1">
                   {item.name}
                 </span>
                 x {item.quantity} units
@@ -57,7 +58,12 @@ const Resume = () => {
         <div className="flex justify-between font-bold">
           <span>Total</span> <span>${resume.totalAmount.toFixed(2)}</span>
         </div>
-        <button className="rounded-lg bg-blue-400 py-3 px-6 text-white w-full">
+        <button
+          className={`rounded-lg bg-blue-400 py-3 px-6 text-white w-full ${
+            disabled ? "cursor-not-allowed bg-gray-400" : ""
+          }`}
+          disabled={disabled}
+        >
           Go to checkout
         </button>
       </div>
