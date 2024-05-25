@@ -27,7 +27,7 @@ const CartButton = () => {
     <Link href="cart" className="text-3xl relative" title="Go to the cart page">
       🛒
       {quantity > 0 && (
-        <span className="text-xs bg-red-500 text-white rounded-full px-2 absolute -right-6 -top-2">
+        <span className="text-xs bg-red-500 text-white rounded-full px-2 absolute -right-4 -top-2">
           {quantity}
         </span>
       )}

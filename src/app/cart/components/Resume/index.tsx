@@ -43,7 +43,7 @@ const Resume = () => {
           return (
             <div key={item.id} className="flex justify-between text-gray-500">
               <span className="flex">
-                <span className="inline-block max-w-60 whitespace-nowrap overflow-hidden text-ellipsis mr-1">
+                <span className="inline-block max-w-60 overflow-hidden text-ellipsis mr-1">
                   {item.name}
                 </span>
                 x {item.quantity} units
