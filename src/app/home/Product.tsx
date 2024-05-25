@@ -6,6 +6,7 @@ import { getCartData } from "../components/Cart/utils";
 import { ProductProps, ProductType } from "./types";
 import { CartItemType } from "../components/Cart/types";
 import useSound from "use-sound";
+import { prettyNumber } from "../utils";
 
 const Product = ({ id, image, name, price }: ProductProps) => {
   const [playActive] = useSound("/assets/sounds/ding-1.mp3", { volume: 0.25 });
@@ -63,7 +64,7 @@ const Product = ({ id, image, name, price }: ProductProps) => {
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div>
-          <div className="font-bold text-xl">${price.toFixed(2)}</div>
+          <div className="font-bold text-xl">${prettyNumber(price)}</div>
           <div>{name}</div>
         </div>
         <button

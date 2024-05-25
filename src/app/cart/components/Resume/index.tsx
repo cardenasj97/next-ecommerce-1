@@ -2,6 +2,7 @@
 
 import { CartItemType } from "@/app/components/Cart/types";
 import { getCartData } from "@/app/components/Cart/utils";
+import { prettyNumber } from "@/app/utils";
 import React, { useEffect, useState } from "react";
 
 type ResumeType = {
@@ -50,13 +51,13 @@ const Resume = () => {
                 x {item.quantity} units
               </span>
 
-              <span>${item.totalAmount.toFixed(2)}</span>
+              <span>${prettyNumber(item.totalAmount)}</span>
             </div>
           );
         })}
 
         <div className="flex justify-between font-bold">
-          <span>Total</span> <span>${resume.totalAmount.toFixed(2)}</span>
+          <span>Total</span> <span>${prettyNumber(resume.totalAmount)}</span>
         </div>
         <button
           className={`rounded-lg bg-blue-400 py-3 px-6 text-white w-full ${

@@ -1,6 +1,7 @@
 import { CartItemType } from "@/app/components/Cart/types";
 import { getCartData } from "@/app/components/Cart/utils";
 import { ProductType } from "@/app/home/types";
+import { prettyNumber } from "@/app/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -25,7 +26,7 @@ const Product = ({ id, image, name, price, quantity }: ProductProps) => {
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div>
-          <div className="font-bold text-xl">${price.toFixed(2)}</div>
+          <div className="font-bold text-xl">${prettyNumber(price)}</div>
           <div>{name}</div>
           <div>Quantity: {quantity}</div>
         </div>
