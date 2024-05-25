@@ -59,10 +59,10 @@ const Product = ({ id, image, name, price }: ProductProps) => {
 
   return (
     <div className="bg-white p-5 rounded-lg flex flex-col border border-solid">
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-1">
         <Image src={image} alt={name} width={80} height={80} />
       </div>
-      <div className="flex flex-1 flex-col justify-between">
+      <div className="flex flex-1 flex-col justify-end gap-3">
         <div>
           <div className="font-bold text-xl">${prettyNumber(price)}</div>
           <div>{name}</div>
