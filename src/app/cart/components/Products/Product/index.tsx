@@ -21,7 +21,7 @@ const Product = ({ id, image, name, price, quantity }: ProductProps) => {
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    if (!e.currentTarget.value) return;
+    if (!e.currentTarget.value || e.currentTarget.value === "0") return;
 
     const newQuantity = parseInt(e.currentTarget.value);
 
