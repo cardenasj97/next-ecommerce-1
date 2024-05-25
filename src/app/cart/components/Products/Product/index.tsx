@@ -44,7 +44,7 @@ const Product = ({ id, image, name, price, quantity }: ProductProps) => {
   };
 
   return (
-    <div className="gap-6 bg-white p-5 rounded-lg flex flex-row border border-solid relative">
+    <div className="gap-6 bg-white p-5 rounded-lg flex flex-col sm:flex-row border border-solid relative">
       <div className="flex justify-center">
         <Image src={image} alt={name} width={80} height={80} />
       </div>
