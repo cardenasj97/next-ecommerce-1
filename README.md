@@ -1,3 +1,5 @@
+![image](https://github.com/cardenasj97/next-ecommerce-1/assets/50243385/465f9889-2fb6-407b-9665-87ada3137199)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
